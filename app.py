@@ -57,15 +57,10 @@ class Student:
     def print(self):
         print("Student id: {}, name: {}".format(self.id, self.name))
 
-class_a = Class()
-
-def add_student(id, name):
-    student = Student(id, name)
-    class_a.add_student(student)
 
 
 def main():
-    class_a = None
+    class_a = Class()
     with open('./config.json', 'r') as file:
         data = json.loads(file.read())
         class_a = Class.from_students_json(data)
@@ -76,7 +71,7 @@ def main():
         student = Student(id, name)
         class_a.add_student(student)
         class_a.write_json('./config.json')
-    elif sys.argv[1] == 'print_student':
+    elif sys.argv[1] == 'print_students':
         class_a.print_all_student()
 
 
